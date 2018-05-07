@@ -75,13 +75,25 @@ public class InterpreterBaseListener implements InterpreterListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrint(InterpreterParser.PrintContext ctx) { }
+	@Override public void enterPrintConsole(InterpreterParser.PrintConsoleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrint(InterpreterParser.PrintContext ctx) { }
+	@Override public void exitPrintConsole(InterpreterParser.PrintConsoleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrintFile(InterpreterParser.PrintFileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintFile(InterpreterParser.PrintFileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -111,13 +123,61 @@ public class InterpreterBaseListener implements InterpreterListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(InterpreterParser.ExprContext ctx) { }
+	@Override public void enterExprSelect(InterpreterParser.ExprSelectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(InterpreterParser.ExprContext ctx) { }
+	@Override public void exitExprSelect(InterpreterParser.ExprSelectContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprUnite(InterpreterParser.ExprUniteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprUnite(InterpreterParser.ExprUniteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprArith(InterpreterParser.ExprArithContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprArith(InterpreterParser.ExprArithContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprText(InterpreterParser.ExprTextContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprText(InterpreterParser.ExprTextContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprTable(InterpreterParser.ExprTableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprTable(InterpreterParser.ExprTableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -286,6 +346,30 @@ public class InterpreterBaseListener implements InterpreterListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAccess(InterpreterParser.AccessContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTableID(InterpreterParser.TableIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTableID(InterpreterParser.TableIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTableCSV(InterpreterParser.TableCSVContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTableCSV(InterpreterParser.TableCSVContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -65,15 +65,29 @@ public interface InterpreterListener extends ParseTreeListener {
 	 */
 	void exitStatSave(InterpreterParser.StatSaveContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link InterpreterParser#print}.
+	 * Enter a parse tree produced by the {@code printConsole}
+	 * labeled alternative in {@link InterpreterParser#print}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrint(InterpreterParser.PrintContext ctx);
+	void enterPrintConsole(InterpreterParser.PrintConsoleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link InterpreterParser#print}.
+	 * Exit a parse tree produced by the {@code printConsole}
+	 * labeled alternative in {@link InterpreterParser#print}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrint(InterpreterParser.PrintContext ctx);
+	void exitPrintConsole(InterpreterParser.PrintConsoleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code printFile}
+	 * labeled alternative in {@link InterpreterParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintFile(InterpreterParser.PrintFileContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printFile}
+	 * labeled alternative in {@link InterpreterParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintFile(InterpreterParser.PrintFileContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code assignExpr}
 	 * labeled alternative in {@link InterpreterParser#assign}.
@@ -99,15 +113,65 @@ public interface InterpreterListener extends ParseTreeListener {
 	 */
 	void exitAssignCSV(InterpreterParser.AssignCSVContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link InterpreterParser#expr}.
+	 * Enter a parse tree produced by the {@code exprSelect}
+	 * labeled alternative in {@link InterpreterParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(InterpreterParser.ExprContext ctx);
+	void enterExprSelect(InterpreterParser.ExprSelectContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link InterpreterParser#expr}.
+	 * Exit a parse tree produced by the {@code exprSelect}
+	 * labeled alternative in {@link InterpreterParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(InterpreterParser.ExprContext ctx);
+	void exitExprSelect(InterpreterParser.ExprSelectContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprUnite}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprUnite(InterpreterParser.ExprUniteContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprUnite}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprUnite(InterpreterParser.ExprUniteContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprArith}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprArith(InterpreterParser.ExprArithContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprArith}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprArith(InterpreterParser.ExprArithContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprText}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprText(InterpreterParser.ExprTextContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprText}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprText(InterpreterParser.ExprTextContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprTable}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprTable(InterpreterParser.ExprTableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprTable}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprTable(InterpreterParser.ExprTableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link InterpreterParser#load}.
 	 * @param ctx the parse tree
@@ -266,4 +330,28 @@ public interface InterpreterListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAccess(InterpreterParser.AccessContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code tableID}
+	 * labeled alternative in {@link InterpreterParser#table}.
+	 * @param ctx the parse tree
+	 */
+	void enterTableID(InterpreterParser.TableIDContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code tableID}
+	 * labeled alternative in {@link InterpreterParser#table}.
+	 * @param ctx the parse tree
+	 */
+	void exitTableID(InterpreterParser.TableIDContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code tableCSV}
+	 * labeled alternative in {@link InterpreterParser#table}.
+	 * @param ctx the parse tree
+	 */
+	void enterTableCSV(InterpreterParser.TableCSVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code tableCSV}
+	 * labeled alternative in {@link InterpreterParser#table}.
+	 * @param ctx the parse tree
+	 */
+	void exitTableCSV(InterpreterParser.TableCSVContext ctx);
 }
