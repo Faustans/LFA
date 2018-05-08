@@ -18,7 +18,8 @@ expr: selectC #exprSelect
     | unite #exprUnite
     | arithmetic #exprArith
     | textExpr #exprText
-    | table #exprTable;
+    | ID #exprId
+    | CSV #exprCsv;
 
 //LOAD E SAVE DO PROGRAMA ATUAL
 load: 'load(' ID ')' ';';

@@ -161,17 +161,29 @@ public interface InterpreterListener extends ParseTreeListener {
 	 */
 	void exitExprText(InterpreterParser.ExprTextContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code exprTable}
+	 * Enter a parse tree produced by the {@code exprId}
 	 * labeled alternative in {@link InterpreterParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExprTable(InterpreterParser.ExprTableContext ctx);
+	void enterExprId(InterpreterParser.ExprIdContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code exprTable}
+	 * Exit a parse tree produced by the {@code exprId}
 	 * labeled alternative in {@link InterpreterParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExprTable(InterpreterParser.ExprTableContext ctx);
+	void exitExprId(InterpreterParser.ExprIdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprCsv}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprCsv(InterpreterParser.ExprCsvContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprCsv}
+	 * labeled alternative in {@link InterpreterParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprCsv(InterpreterParser.ExprCsvContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link InterpreterParser#load}.
 	 * @param ctx the parse tree

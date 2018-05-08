@@ -48,7 +48,15 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
 	@Override public void exitExprText(InterpreterParser.ExprTextContext ctx) {
 
   }
-	@Override public void exitExprTable(InterpreterParser.ExprTableContext ctx) {
+  @Override public void exitExprId(InterpreterParser.ExprIdContext ctx) {
+    if(varMap.containsKey(ctx.ID().getText())){
+      parseTree.put(ctx, varMap.get(ctx.ID().getText()));
+    }
+    else{
+      System.err.println("Could not find variable \"" + ctx.ID().getText()+  "\"");
+    }
+  }
+	@Override public void exitExprCsv(InterpreterParser.ExprCsvContext ctx) {
 
   }
 	@Override public void exitLoad(InterpreterParser.LoadContext ctx) {
@@ -109,12 +117,6 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
   }
 	@Override public void exitTableID(InterpreterParser.TableIDContext ctx) {
     parseTreeElement.put(ctx,ctx.ID().getText());
-    if(varMap.containsKey(ctx.ID().getText())){
-      parseTree.put(ctx, varMap.get(ctx.ID().getText()));
-    }
-    else{
-      System.err.println("Could not find variable \"" + ctx.ID().getText()+  "\"");
-    }
   }
 	@Override public void exitTableCSV(InterpreterParser.TableCSVContext ctx) {
     try{
