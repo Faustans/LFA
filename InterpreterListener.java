@@ -101,18 +101,6 @@ public interface InterpreterListener extends ParseTreeListener {
 	 */
 	void exitAssignExpr(InterpreterParser.AssignExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code assignCSV}
-	 * labeled alternative in {@link InterpreterParser#assign}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignCSV(InterpreterParser.AssignCSVContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code assignCSV}
-	 * labeled alternative in {@link InterpreterParser#assign}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignCSV(InterpreterParser.AssignCSVContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code exprSelect}
 	 * labeled alternative in {@link InterpreterParser#expr}.
 	 * @param ctx the parse tree
@@ -332,16 +320,6 @@ public interface InterpreterListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitUnite(InterpreterParser.UniteContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link InterpreterParser#access}.
-	 * @param ctx the parse tree
-	 */
-	void enterAccess(InterpreterParser.AccessContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link InterpreterParser#access}.
-	 * @param ctx the parse tree
-	 */
-	void exitAccess(InterpreterParser.AccessContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code tableID}
 	 * labeled alternative in {@link InterpreterParser#table}.

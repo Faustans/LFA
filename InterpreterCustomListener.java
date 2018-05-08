@@ -33,9 +33,7 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
 	@Override public void exitAssignExpr(InterpreterParser.AssignExprContext ctx) {
 
   }
-	@Override public void exitAssignCSV(InterpreterParser.AssignCSVContext ctx) {
 
-  }
 	@Override public void exitExprSelect(InterpreterParser.ExprSelectContext ctx) {
 
   }
@@ -98,8 +96,7 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
 	@Override public void exitUnite(InterpreterParser.UniteContext ctx) {
 
   }
-	@Override public void exitAccess(InterpreterParser.AccessContext ctx) {
-    Map<String, ArrayList<String>> tab = parseTree.get(ctx.table());
+  /*  Map<String, ArrayList<String>> tab = parseTree.get(ctx.table());
     List<ArrayList<String>> test = new ArrayList<ArrayList<String>>(tab.values());
     if(Integer.parseInt(ctx.INT().getText())> test.size()-1){
       System.err.println("Column " + ctx.INT().getText() + " does not exist");
@@ -113,8 +110,7 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
           parseTree.put(ctx,outMap);
         }
       }
-    }
-  }
+    }*/
 	@Override public void exitTableID(InterpreterParser.TableIDContext ctx) {
     parseTreeElement.put(ctx,ctx.ID().getText());
   }
