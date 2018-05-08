@@ -11,7 +11,7 @@ import java.util.*;
 public class ReaderListener extends CsvBaseListener {
   private ParseTreeProperty<ArrayList<String>> parseTree = new ParseTreeProperty<ArrayList<String>>();
   private ParseTreeProperty<String> parseTreeElement = new ParseTreeProperty<String>();
-  private Map<String, ArrayList<String>> csvMap = new HashMap<>();
+  private Map<String, ArrayList<String>> csvMap = new LinkedHashMap<>();
   public Map<String, ArrayList<String>> getMap(){
     return csvMap;
   }

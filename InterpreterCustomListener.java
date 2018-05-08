@@ -1,14 +1,16 @@
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.TerminalNode;
-import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import java.io.File;
+import java.io.IOException;
 import java.lang.Math.*;
 import java.util.*;
-
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class InterpreterCustomListener extends InterpreterBaseListener {
-  private ParseTreeProperty<ArrayList<String>> parseTree = new ParseTreeProperty<ArrayList<String>>();
-  private Map<String, ArrayList<String>> varMap = new HashMap<>();
+  private ParseTreeProperty<Map<String, ArrayList<String>>> parseTree = new ParseTreeProperty<Map<String, ArrayList<String>> >();
+  private ParseTreeProperty<String> parseTreeElement = new ParseTreeProperty<String>();
+  private Map<String, Map<String, ArrayList<String>>> varMap = new LinkedHashMap<>();
 	@Override public void exitProgram(InterpreterParser.ProgramContext ctx) {}
 	@Override public void exitStatAssign(InterpreterParser.StatAssignContext ctx) {
 
@@ -92,10 +94,28 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
 
   }
 	@Override public void exitTableID(InterpreterParser.TableIDContext ctx) {
-
+    parseTreeElement.put(ctx,ctx.ID().getText());
+    if(varMap.containsKey(ctx.ID().getText())){
+      parseTree.put(ctx, varMap.get(ctx.ID().getText()));
+    }
+    else{
+      System.err.println("Could not find variable \"" + ctx.ID().getText()+  "\"");
+    }
   }
 	@Override public void exitTableCSV(InterpreterParser.TableCSVContext ctx) {
-
+    try{
+      File f = new File(ctx.CSV().getText());
+      if(f.exists()){
+        parseTreeElement.put(ctx,ctx.CSV().getText());
+        readCSV csv = new readCSV();
+        parseTree.put(ctx,csv.read(ctx.CSV().getText()));
+      }
+      else{
+        System.err.println("File \"" + ctx.CSV().getText()+  "\" does not exist");
+      }
+    }catch(IOException error){
+      System.err.println(error);
+    }
   }
 	@Override public void visitErrorNode(ErrorNode node) {}
 }

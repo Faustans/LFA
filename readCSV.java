@@ -26,7 +26,7 @@ public class readCSV{
       //parser.addErrorListener(new ErrorHandlingListener());
       // begin parsing at stat rule:
       ParseTree tree = parser.stat();
-      Map<String, ArrayList<String>> csvMap = new HashMap<>();
+      Map<String, ArrayList<String>> csvMap = new LinkedHashMap<>();
       if (parser.getNumberOfSyntaxErrors() == 0) {
          // print LISP-style tree:
          // System.out.println(tree.toStringTree(parser));
