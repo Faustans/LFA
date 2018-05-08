@@ -34,7 +34,7 @@ public class readCSV{
          ReaderListener listener0 = new ReaderListener();
          walker.walk(listener0, tree);
          csvMap = listener0.getMap();
-         System.out.println(csvMap.size());
+        // System.out.println(csvMap.size());
       }
     return csvMap;
    }

@@ -91,7 +91,21 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
 
   }
 	@Override public void exitAccess(InterpreterParser.AccessContext ctx) {
-
+    Map<String, ArrayList<String>> tab = parseTree.get(ctx.table());
+    List<ArrayList<String>> test = new ArrayList<ArrayList<String>>(tab.values());
+    if(Integer.parseInt(ctx.INT().getText())> test.size()-1){
+      System.err.println("Column " + ctx.INT().getText() + " does not exist");
+    }
+    else{
+      ArrayList<String> temp = test.get(Integer.parseInt(ctx.INT().getText()));
+      for (String s : tab.keySet()) {
+        if(tab.get(s).equals(temp)){
+          Map<String, ArrayList<String>> outMap = new LinkedHashMap<String, ArrayList<String>>();
+          outMap.put(s,temp);
+          parseTree.put(ctx,outMap);
+        }
+      }
+    }
   }
 	@Override public void exitTableID(InterpreterParser.TableIDContext ctx) {
     parseTreeElement.put(ctx,ctx.ID().getText());
@@ -114,7 +128,7 @@ public class InterpreterCustomListener extends InterpreterBaseListener {
         System.err.println("File \"" + ctx.CSV().getText()+  "\" does not exist");
       }
     }catch(IOException error){
-      System.err.println(error);
+      System.err.println("IO Error: " + error);
     }
   }
 	@Override public void visitErrorNode(ErrorNode node) {}
